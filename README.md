@@ -2,7 +2,7 @@
 ## Description
 Create your own **Python Calculator** App using *Python* and *tkinter library*.
 
-> [!Hint] Tkinter is already in your python's workstation without any *pip* installation
+> Tkinter is already in your python's workstation without any *pip* installation
 
 ## Screenshot
 ![Calculator Error App](calculator-error.png)
