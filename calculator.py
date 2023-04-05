@@ -5,6 +5,7 @@ SMALL_FONT_STYLE = ("Inter", 16)
 DIGITS_FONT_STYLE = ("Inter", 24, "bold")
 DEFAULT_FONT_STYLE = ("Inter", 20)
 
+# ===== Root Default =====
 OFF_WHITE = "#F8FAFF"
 WHITE = "#FFFFFF"
 LIGHT_BLUE = "#CCEDFF"
@@ -12,7 +13,10 @@ LIGHT_GRAY = "#F5F5F5"
 LABEL_COLOR = "#25265E"
 
 
+# ===== Functions =====
 class Calculator:
+
+    # __init__ Method
     def __init__(self):
         self.window = tk.Tk()
         self.window.geometry("375x667")
@@ -44,6 +48,7 @@ class Calculator:
         self.create_special_buttons()
         self.bind_keys()
 
+    # Evaluate Class
     def bind_keys(self):
         self.window.bind("<Return>", lambda event: self.evaluate())
         for key in self.digits:
@@ -52,6 +57,7 @@ class Calculator:
         for key in self.operations:
             self.window.bind(key, lambda event, operator=key: self.append_operator(operator))
 
+    # Special Buttons
     def create_special_buttons(self):
         self.create_clear_button()
         self.create_equals_button()
@@ -91,6 +97,7 @@ class Calculator:
         self.update_total_label()
         self.update_label()
 
+    # Operators Buttons
     def create_operator_buttons(self):
         i = 0
         for operator, symbol in self.operations.items():
@@ -140,6 +147,7 @@ class Calculator:
         finally:
             self.update_label()
 
+    # Equal Button
     def create_equals_button(self):
         button = tk.Button(self.buttons_frame, text="=", bg=LIGHT_BLUE, fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE,
                            borderwidth=0, command=self.evaluate)
@@ -159,6 +167,7 @@ class Calculator:
     def update_label(self):
         self.label.config(text=self.current_expression[:11])
 
+    # Run mainloop()
     def run(self):
         self.window.mainloop()
 
